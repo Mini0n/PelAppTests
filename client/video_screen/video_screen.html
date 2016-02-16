@@ -1,0 +1,103 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>PelApp</title>
+</head>
+
+<body>
+  <div id="video_screen" class="container-fluid section">
+
+    <div class="legend-div row">
+      <h4>Rutina Quirúrgica</h4>
+    </div>
+
+    <div id="boton">
+      <button onclick="go();">Go!</button>
+      <button onclick="killPlayer();">Kill!</button>
+    </div>
+    
+    <div id="player-div" class="player-div">
+      <div id="ytplayer"></div>
+    </div>
+
+    <div id="player-controls" class="player-controls">
+      <div class="btn-group btn-group-lg" role="group" aria-label="..." >
+        <button type="button" class="btn btn-default" role="group" aria-label="..."
+         onclick="playerPlay();">
+          <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-default" role="group" aria-label="..."
+         onclick="playerPause();">
+          <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-default" role="group" aria-label="..."
+         onclick="playerStop();">
+          <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main-menu -->
+    <div id="videos-rutina-array" class="container-fluid section"></div>
+
+  </div>
+
+  <script>
+
+    /* --- youtube api loading [Async] --- */
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/player_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    var APIloaded = false;
+    var player;
+    function onYouTubePlayerAPIReady(){ APIloaded = true; }
+
+    function createYPlayer(videoId){
+      if (APIloaded){
+        player = new YT.Player('ytplayer', {
+          playerVars: {'controls':0, 'enablejsapi':0, 'fs':0, 
+                       'color':'white', 'showinfo':0, 'theme':'light'},
+          height: '400',
+          width: '450',
+          videoId: videoId
+        });
+      }
+    }
+
+    function playerPlay(){ player.playVideo(); }
+    function playerPause(){ player.pauseVideo(); }
+    function playerStop(){ player.stopVideo(); }
+    function killPlayer(){
+      var playerDiv = document.getElementById('player-div');
+      newDivEl = document.createElement('div');
+      newDivEl.id = 'ytplayer';
+      playerDiv.innerHTML = '';
+      player = null;
+      playerDiv.appendChild(newDivEl);
+    }
+
+
+    function go(){
+      console.log('--- Go!');
+      createYPlayer(rutina_q[0]);
+    }
+
+
+
+  //IDs rutina quirúrgica
+  rutina_q = ['kzLtA691TYs','5f59oITPKTc','oW45bYZPxSE','j9B-0fLiWBQ','vinI9rUjRM8',
+              'pXgRFT9KLlM','pXgRFT9KLlM','4x_BW3Si9BE'];
+  
+  engu = ['c5mkDJKBvZ4','YdcRR9W4GIs','_t9MZHyPzb8'];
+  anti = ['FRKdFFOvgpI','nEGp8l4JkWo'];
+  lava = ['UaEzciq7Bww','s9okU2DZlfg'];
+  emba = ['MPGV_cro8Hs'];
+  infi = ['zDSdmqefmOc'];
+  sutu = ['bWGWhpno5lk'];
+
+
+
+
+  </script>
+
+</body>

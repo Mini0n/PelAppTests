@@ -1,0 +1,131 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>PelApp</title>
+</head>
+
+<body>
+  <div id="hoja_registro_anes" class="container-fluid section">
+
+    <div class="legend-div row">
+      <h4>Hoja de Registro</h4>
+    </div>
+    
+    <img id="hoja_registro_img" src="hoja_registro/items/hoja_0.png" alt="HojaDeRegistro">
+
+    <div class="hoja_menu_btn_div" id="hoja_menu_btn_div">
+      <div class="menu_item_llenar_div" onclick="showMenu();">¿Cómo llenar?</div>
+      
+      <div id="hoja_menu_items_div" class="hoja_menu_items_div" style="display:none;">
+        <div class="hoja_menu_item_div" id="hoja_1" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#77933C;"></div>
+          <div class="hoja_menu_item_label_div">Ficha de identificación</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_2" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#FF0000;"></div>
+          <div class="hoja_menu_item_label_div">Registro de hora</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_3" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#F25ADD;"></div>
+          <div class="hoja_menu_item_label_div">Signos vitales y eventos</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_4" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#FF6600;"></div>
+          <div class="hoja_menu_item_label_div">Perfusión venoclisis</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_5" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#31859C;"></div>
+          <div class="hoja_menu_item_label_div">Valoración neurológica</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_6" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#660066;"></div>
+          <div class="hoja_menu_item_label_div">Agentes empleados</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_7" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#7F7F7F;"></div>
+          <div class="hoja_menu_item_label_div">Periodos anestésicos</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_8" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#984807;"></div>
+          <div class="hoja_menu_item_label_div">Solución parenteral</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_9" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#008000;"></div>
+          <div class="hoja_menu_item_label_div">Operación</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_10" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#FFFF00;"></div>
+          <div class="hoja_menu_item_label_div">Complicaciones trans.</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_11" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#8C0B8F;"></div>
+          <div class="hoja_menu_item_label_div">Técnica anestésica</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_12" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#0000FF;"></div>
+          <div class="hoja_menu_item_label_div">Complicaciones anest.</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_13" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#4E2700;"></div>
+          <div class="hoja_menu_item_label_div">Balance de líquidos</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_14" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#CCFFCC;"></div>
+          <div class="hoja_menu_item_label_div">Aldrete</div>
+        </div>
+        <div class="hoja_menu_item_div" id="hoja_15" onclick="clickMenu(this);">
+          <div class="hoja_menu_item_circle_div" 
+           style="background-color:#404040;"></div>
+          <div class="hoja_menu_item_label_div">Descripción</div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+<script>
+  
+  function showMenu(){
+    var menuItems = document.getElementById('hoja_menu_items_div');
+    if (menuItems.style.display == 'none'){ 
+      menuItems.style.display = 'block'; 
+    } else {
+      menuItems.style.display = 'none';
+    }
+    setPage('hoja_0');
+  }
+
+  function clickMenu(senderDiv){
+    document.getElementById('hoja_menu_items_div').style.display="none";
+    setPage(senderDiv.id);
+  }
+
+  function setPage(pageConfig){
+    var imagen = document.getElementById('hoja_registro_img');
+    var path = 'hoja_registro/items/';
+    imagen.src=''+path+pageConfig+'.png';
+  }
+
+
+
+</script>
+
+
+</body>

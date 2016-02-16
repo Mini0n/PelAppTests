@@ -1,0 +1,360 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>PelApp</title>
+</head>
+
+<body>
+  <div id="calc_dosis" class="container-fluid section">
+
+    <div class="legend-div row">
+      <h4>Cálculo de dosis</h4>
+    </div>
+
+    
+    <div id="calc-dosis-calc" style="display:block;">
+      
+      <div id="protocolo-div" style="text-align:center;">
+        <h5>Protocolo</h5> 
+      </div>
+      <div class="btn-group btn-group-justified" role="group">
+        <div class="btn-group" role="group">
+          <button id="dosis-btn-A" class="btn btn-default btn-lg active" 
+           onclick="showDosisProtocol('A');">A</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button id="dosis-btn-B" class="btn btn-default btn-lg" 
+           onclick="showDosisProtocol('B');">B</button>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="dosisProtocolA" id="dosisProtocolA" style="display:block;">
+        <div class="input-group">
+          <span class="input-group-addon" style="min-width:100px;">Peso</span>
+          <input id="peso-edit-A" type="text" style="text-align:center;" class="form-control" onkeydown="calcDosis();" onkeyup="calcDosis();">
+          <span class="input-group-addon" style="min-width:100px;">Kg</span>
+        </div>
+        <br>
+        <div class="input-group">
+          <span class="input-group-addon" style="min-width:100px;">Xilacina</span>
+          <input id="resAX" type="text" readonly style="text-align:center;" value="0" class="form-control">
+          <span class="input-group-addon" style="min-width:100px;">ml</span>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" style="min-width:100px;">Ketamina</span>
+          <input id="resAK" type="text" readonly style="text-align:center;" value="0" class="form-control">
+          <span class="input-group-addon" style="min-width:100px;">ml</span>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" style="min-width:100px;">Pento</span>
+          <input id="resAP" type="text" readonly style="text-align:center;" value="0" class="form-control">
+          <span class="input-group-addon" style="min-width:100px;">ml</span>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" style="min-width:100px;">Solución</span>
+          <input id="resAS" type="text" readonly style="text-align:center;" value="0" class="form-control">
+          <span class="input-group-addon" style="min-width:100px;">Gotas/min</span>
+        </div>
+      </div>
+
+
+      <div class="dosisProtocolB" id="dosisProtocolB" style="display:none;">
+        <div class="input-group">
+          <span class="input-group-addon" style="min-width:100px;">Peso</span>
+          <input id="peso-edit-B" type="text" style="text-align:center;" class="form-control" onkeydown="calcDosis();" onkeyup="calcDosis();">
+          <span class="input-group-addon" style="min-width:100px;">Kg</span>
+        </div>
+        <br>
+        <div class="input-group">
+          <span class="input-group-addon" style="min-width:100px;">Ketamina</span>
+          <input id="resBK" type="text" readonly style="text-align:center;" value="0" class="form-control">
+          <span class="input-group-addon" style="min-width:100px;">ml</span>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" style="min-width:100px;">Pento</span>
+          <input id="resBP" type="text" readonly style="text-align:center;" value="0" class="form-control">
+          <span class="input-group-addon" style="min-width:100px;">ml</span>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" style="min-width:100px;">Solución</span>
+          <input id="resBS" type="text" readonly style="text-align:center;" value="0" class="form-control">
+          <span class="input-group-addon" style="min-width:100px;">Gotas/min</span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="calc_dosis_about_btn_div">
+      <button class="btn btn-default btn-lg" onclick="aboutBtn();">
+        <span class="glyphicon glyphicon-question-sign"></span>
+      </button>
+    </div>
+
+
+    <div id="calc-dosis-about" class="calc-dosis-about" style="display:none;">
+
+      <div id="about-dosis-A" style="display:block;">
+        <div id="about-dosis-A-info" style="display:block;">
+          <h4>Protocolo A</h4>
+          Utiliza 3 fármacos. <br>
+          Fórmula: 
+          <br>
+          <div id="image-container" style="text-align:center;">
+            <img src="dosis/protA/protoA.png" class='img-responsive' width="95%" height="auto" style="margin:0 auto;">
+          </div>
+          <br>
+          <table class="table table-bordered table-centered">
+            <thead>
+              <tr class="info">
+                <th style="text-align:center;">Fármaco</th>
+                <th style="text-align:center;">Dosis</th>
+                <th style="text-align:center;">Presentación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Xilacina</td>
+                <td>5mg</td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>Ketamina</td>
+                <td>20mg</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>Pentobarbital</td>
+                <td>20mg</td>
+                <td>63</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="text-align:center;">
+            <button class="btn btn-default btn-lg" onclick="ejemploBtn();">Ejemplos</button>
+          </div>
+        </div>
+
+        <div id="about-dosis-A-sample" style="display:none;">
+          Calcula la anestesia requerida para un conejo que pesa 3.700 kg: <br> <br>
+          <div class="icons-grid row">
+            <div id="line1" class="grd-line row" style="height:20%;">
+              <div class="grid-col col-xs-4" style="text-align:left;">
+                Xilacina: <br>
+                Xilacina: .92ml
+              </div>
+              <div class="grid-col col-xs-8">
+                <img src="dosis/protA/ejem1.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
+              </div>
+            </div>
+            <div id="line2" class="grd-line row" style="height:20%;">
+              <div class="grid-col col-xs-4" style="text-align:left;">
+                Ketamina: <br>
+                Ketamina: .74ml
+              </div>
+              <div class="grid-col col-xs-8">
+                <img src="dosis/protA/ejem2.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
+              </div>
+            </div>
+            <div id="line3" class="grd-line row" style="height:20%;">
+              <div class="grid-col col-xs-4" style="text-align:left;">
+                Pentobarbital: <br>
+                Pentobarbital: 1.1ml
+              </div>
+              <div class="grid-col col-xs-8">
+                <img src="dosis/protA/ejem3.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="about-dosis-B" style="display:none;">
+        <div id="about-dosis-B-info" style="display:block;">
+          <h4>Protocolo B</h4>
+          Utiliza 2 fármacos a mayor dosis. <br>
+          Fórmula:        
+          <br>
+          <div id="image-container" style="text-align:center;">
+            <img src="dosis/protB/protB.png" class='img-responsive' width="95%" height="auto" style="margin:0 auto;">
+          </div>
+          <br>
+          <table class="table table-bordered table-centered">
+            <thead>
+              <tr class="info">
+                <th style="text-align:center;">Fármaco</th>
+                <th style="text-align:center;">Dosis</th>
+                <th style="text-align:center;">Presentación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ketamina</td>
+                <td>24mg</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>Pentobarbital</td>
+                <td>40mg</td>
+                <td>63</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="text-align:center;">
+            <button class="btn btn-default btn-lg" onclick="ejemploBtn();">Ejemplos</button>
+          </div>
+        </div>
+        <div id="about-dosis-B-sample" style="display:none;">
+
+          Calcula la anestesia requerida para un conejo que pesa 4.200 kg: <br> <br>
+          <div class="icons-grid row">
+            <div id="line1" class="grd-line row" style="height:20%;">
+              <div class="grid-col col-xs-4" style="text-align:left;">
+                Ketamina: <br>
+                Ketamina: 1ml
+              </div>
+              <div class="grid-col col-xs-8">
+                <img src="dosis/protB/ejem1.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
+              </div>
+            </div>
+            <div id="line2" class="grd-line row" style="height:20%;">
+              <div class="grid-col col-xs-4" style="text-align:left;">
+                Pentobarbital: <br>
+                Pentobarbital: 2.6ml
+              </div>
+              <div class="grid-col col-xs-8">
+                <img src="dosis/protB/ejem2.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+<script>
+
+  function ejemploBtn(){
+    var infoA = document.getElementById('about-dosis-A-info');
+    var infoB = document.getElementById('about-dosis-B-info');
+    var sampA = document.getElementById('about-dosis-A-sample');
+    var sampB = document.getElementById('about-dosis-B-sample');
+    var infoAD = infoA.style.display=='block';
+    var infoBD = infoB.style.display=='block';
+    if (infoAD||infoBD){
+      infoA.style.display='none';
+      infoB.style.display='none';
+      sampA.style.display='block';
+      sampB.style.display='block';
+    } else {
+      infoA.style.display='block';
+      infoB.style.display='block';
+      sampA.style.display='none';
+      sampB.style.display='none';
+    }
+  }
+
+  function aboutBtn(){
+    var calc = document.getElementById('calc-dosis-calc');
+    var about = document.getElementById('calc-dosis-about');
+    var infoA = document.getElementById('about-dosis-A-info');
+    var infoB = document.getElementById('about-dosis-B-info');
+    var sampA = document.getElementById('about-dosis-A-sample');
+    var sampB = document.getElementById('about-dosis-B-sample');
+    infoA.style.display='block';
+    infoB.style.display='block';
+    sampA.style.display='none';
+    sampB.style.display='none';
+    if (calc.style.display=='block'){
+      calc.style.display='none';
+      about.style.display='block';
+    } else {
+      about.style.display='none';
+      calc.style.display='block';
+    }
+  }
+
+  function showDosisProtocol(protocol){
+    var protocolA = document.getElementById('dosisProtocolA');
+    var protocolB = document.getElementById('dosisProtocolB');
+    var aboutA = document.getElementById('about-dosis-A');
+    var aboutB = document.getElementById('about-dosis-B');
+    //--- info & samples ---
+    var infoA = document.getElementById('about-dosis-A-info');
+    var infoB = document.getElementById('about-dosis-B-info');
+    var sampA = document.getElementById('about-dosis-A-sample');
+    var sampB = document.getElementById('about-dosis-B-sample');
+    //----------------------
+    var btnA = document.getElementById('dosis-btn-A');
+    var btnB = document.getElementById('dosis-btn-B');
+    var clearClass = "btn btn-default btn-lg";
+    infoA.style.display='block';
+    infoB.style.display='block';
+    sampA.style.display='none';
+    sampB.style.display='none';
+    if (protocol=='A'){
+      protocolB.style.display='none';
+      protocolA.style.display='block';
+      aboutB.style.display='none';
+      aboutA.style.display='block';
+      btnB.className = clearClass;
+      btnA.className = clearClass + " active";
+    } else {
+      protocolA.style.display='none';
+      protocolB.style.display='block';
+      aboutA.style.display='none';
+      aboutB.style.display='block';
+      btnA.className = clearClass;
+      btnB.className = clearClass + " active";
+    }
+  }
+
+  function calcDosis(){
+    //ProtA -------------
+    var dosisAX = 05; var presenAX = 020; var resAX = 0;
+    var dosisAK = 20; var presenAK = 100; var resAK = 0;
+    var dosisAP = 20; var presenAP = 063; var resAP = 0;
+    //ProtB -------------
+    var dosisBK = 24; var presenBK = 100; var resBK = 0;
+    var dosisBP = 40; var presenBP = 063; var resBP = 0;
+    //Peso --------------
+    var pesoA = document.getElementById('peso-edit-A').value;
+    var pesoB = document.getElementById('peso-edit-B').value;
+    pesoA = parseInt(pesoA); 
+    pesoB = parseInt(pesoB); 
+    if (String(pesoA)=='NaN'){ pesoA = 0;}
+    if (String(pesoB)=='NaN'){ pesoB = 0;}
+    //ResA --------------
+    resAX = (((pesoA)*(dosisAX))/(presenAX)).toFixed(2);
+    resAK = (((pesoA)*(dosisAK))/(presenAK)).toFixed(2);
+    resAP = (((pesoA)*(dosisAP))/(presenAP)).toFixed(2);
+    resAS = (0).toFixed(2);
+    //ResB --------------
+    resBK = (((pesoB)*(dosisBK))/(presenBK)).toFixed(2);
+    resBP = (((pesoB)*(dosisBP))/(presenBP)).toFixed(2);
+    resBS = (0).toFixed(2);
+    //Display -----------
+    //-- ProtA
+    document.getElementById('resAX').value = resAX;
+    document.getElementById('resAK').value = resAK;
+    document.getElementById('resAP').value = resAP;
+    document.getElementById('resAS').value = resAS;
+    //-- ProtB
+    document.getElementById('resBK').value = resBK;
+    document.getElementById('resBP').value = resBP;
+    document.getElementById('resBS').value = resBS;
+  }
+
+</script>
+
+</body>
