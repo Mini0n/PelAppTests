@@ -1,8 +1,18 @@
 <template name="definitionItem">
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">
-      {{name}}
-    </h4>
-    <p class="list-group-item-text">{{text}}</p>
-  </a>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{url}}">
+          {{name}}
+        </a>
+      </h4>
+    </div>
+    <div id="collapse-{{url}}" class="panel-collapse collapse">
+      <div class="panel-body">
+        {{text}}
+      </div>
+    </div>
+  </div>
 </template>
+
+
