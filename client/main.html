@@ -147,13 +147,29 @@
     }
 
     function busquedaTerminos(termino){
-      console.log('busquedaTerminos');
+      var defs = document.getElementById('accordion-terminos').childNodes;
+      var attr = '';
+      for (i=0; i<defs.length; i++){
+        attr = defs[i].getAttribute('data-search').toLowerCase();
+        if (attr.indexOf((termino).toLowerCase()) > -1){
+          defs[i].style.display = 'block';
+        } else {
+          defs[i].style.display = 'none';
+        }
+      }
     }
 
     function busquedaDefinitions(termino){
-      console.log('busquedaDefinitions');
       var defs = document.getElementById('accordion-definitions').childNodes;
-      console.log(defs);
+      var attr = '';
+      for (i=0; i<defs.length; i++){
+        attr = defs[i].getAttribute('data-search').toLowerCase();
+        if (attr.indexOf((termino).toLowerCase()) > -1){
+          defs[i].style.display = 'block';
+        } else {
+          defs[i].style.display = 'none';
+        }
+      }
     }
 
 </script>
