@@ -7,7 +7,7 @@
 
   <div id="search-bar" class="container-fluid row btn-primary search-bar">
       <div class="search-sub search-edit-div col-xs-12">
-        <input type="text" class="form-control" placeholder="Buscar">
+        <input type="text" class="form-control" placeholder="Buscar" onkeyup="busqueda(this.value);">
       </div>
   </div>
 
@@ -70,6 +70,10 @@
 <!-- =============================================================================================================================================== -->
 <script>
 
+    //Control variables to know if search should affect defs or terms lists
+    inDefinitions = false;
+    inTerminos = false;
+
     //Queue de secciones visitadas
     seenSections = ["practice_main"];
     toSeeSections = ["practice_main"];
@@ -102,7 +106,9 @@
     function goToSection(sectionId){
       hideSections();
       showSection(sectionId);
-      console.log("go to: "+sectionId);
+      inDefinitions = (sectionId=='defi_main') ? true : false;
+      inTerminos =  (sectionId=='tmed_main') ? true : false;
+      // console.log("go to: "+sectionId);
       if (seenSections.length==0){ seenSections = []; }
       seenSections.push(sectionId);
       setSearchBar();
@@ -127,11 +133,26 @@
       }
     }
 
-
     function goToURL(URLtxt){
       document.location.href = URLtxt;
     }
 
+    function busqueda(termino){
+      console.log(termino);
+      if (inTerminos){ busquedaTerminos(termino); } else {
+        if (inDefinitions){ busquedaDefinitions(termino); } else {
+          console.log('busqueda App');
+        }
+      } 
+    }
+
+    function busquedaTerminos(termino){
+      console.log('busquedaTerminos');
+    }
+
+    function busquedaDefinitions(termino){
+      console.log('busquedaDefinitions');
+    }
 
 </script>
 <!-- =============================================================================================================================================== -->
