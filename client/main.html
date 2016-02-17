@@ -11,6 +11,9 @@
       </div>
   </div>
 
+  <div id="search-list" class="search-list alert-info container-fluid">
+  </div>
+
   <div id="main_screen" class="container-fluid section" style="visibility: visible; display: block;">
 
     <div id="main-buttons-bar-div" class="row">
@@ -138,10 +141,16 @@
     }
 
     function busqueda(termino){
-      console.log(termino);
       if (inTerminos){ busquedaTerminos(termino); } else {
         if (inDefinitions){ busquedaDefinitions(termino); } else {
-          console.log('busqueda App');
+          searchList = document.getElementById('search-list');
+          if (termino.length>0){
+            searchList.style.display = 'block';
+            searchList.innerText = termino;
+            
+          } else {
+            searchList.style.display = 'none';
+          }
         }
       } 
     }

@@ -24,6 +24,17 @@ h4 {
   border-bottom: 1px solid #bce8f1;
 }
 
+.search-list {
+  position: fixed;
+  top: 54px;
+  width: 100%;
+  opacity: 0.9;
+  z-index: 3;
+  padding: 10px 23px;
+  border-bottom: 1px solid #bce8f1;
+  display: none;
+}
+
 .search-sub {
   padding: 10px 0px;
 }
