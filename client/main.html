@@ -12,6 +12,7 @@
   </div>
 
   <div id="search-list" class="search-list alert-info container-fluid">
+    <div class="search-list-sections">{{> sectionsList}}</div>
   </div>
 
   <div id="main_screen" class="container-fluid section" style="visibility: visible; display: block;">
@@ -146,7 +147,7 @@
           searchList = document.getElementById('search-list');
           if (termino.length>0){
             searchList.style.display = 'block';
-            searchList.innerText = termino;
+            // searchList.innerText = termino;
             
           } else {
             searchList.style.display = 'none';
@@ -179,6 +180,10 @@
           defs[i].style.display = 'none';
         }
       }
+    }
+
+    function goToBusqueda(value){
+      console.log('-> '+value);
     }
 
 </script>

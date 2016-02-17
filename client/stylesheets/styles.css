@@ -30,9 +30,23 @@ h4 {
   width: 100%;
   opacity: 0.9;
   z-index: 3;
-  padding: 10px 23px;
+  /*padding: 10px 23px;*/
+  padding: 0px;
   border-bottom: 1px solid #bce8f1;
   display: none;
+}
+
+.section-list {
+  margin: 0;
+  padding: 0;
+}
+
+.section-item {
+  display: none;
+}
+
+.search-list-sections {
+  padding: 0px;
 }
 
 .search-sub {
