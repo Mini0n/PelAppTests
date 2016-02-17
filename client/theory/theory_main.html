@@ -1,0 +1,66 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>PelApp</title>
+</head>
+
+<body>
+
+  <div id="theory_main" class="container-fluid section">
+
+    <div class="icons-grid row">
+      <div id="line1" class="grd-line row">
+        <div class="grid-col col-xs-4">
+          <img height="140px" width="140px" onclick="goToSection('hist_main');" src="icons/Historia.png" alt="..." class="img-circle img-responsive center-block">
+          Historia
+        </div>
+        <div class="grid-col col-xs-4">
+          <img height="140px" width="140px" onclick="goToSection('sope_main');" src="icons/Sala-de-operaciones.png" alt="..." class="img-circle img-responsive center-block">
+          Sala de operaciones
+        </div>
+        <div class="grid-col col-xs-4">
+          <img height="140px" width="140px" onclick="goToSection('defi_main');" src="icons/Definiciones.png" alt="..." class="img-circle img-responsive center-block">
+          Definiciones
+        </div>
+      </div>
+      <div id="line2" class="grd-line row">
+        <div class="grid-col col-xs-4">
+          <img height="140px" width="140px" onclick="goToURL('http://www.facmed.unam.mx/deptos/biocetis/Doc/manualhistoriaclinicaacademica.pdf')" src="icons/historia-cli.png" alt="..." class="img-circle img-responsive center-block">
+          Historia clínica
+        </div>
+        <div class="grid-col col-xs-4">
+          <img height="140px" width="140px" onclick="goToSection('tmed_main');" src="icons/terminos-med.png" alt="..." class="img-circle img-responsive center-block">
+          Términos médicos
+        </div>
+        <div class="grid-col col-xs-4">
+          <img height="140px" width="140px" onclick="goToSection('ppt_main');" src="icons/Presentaciones.png" alt="..." class="img-circle img-responsive center-block">
+          Presentaciones
+        </div>
+      </div>
+      <div id="line3" class="grd-line row">
+        <div class="grid-col col-xs-4">
+          <img height="140px" width="140px" onclick="goToSection('anesantis_main');" src="icons/anestesicos.png" alt="..." class="img-circle img-responsive center-block">
+          Anestésicos / Antisépticos
+        </div>
+        <div class="grid-col col-xs-4">
+          <img height="140px" width="140px" onclick="goToSection('teo_biblio');" src="icons/bibliografia.png" alt="..." class="img-circle img-responsive center-block">
+          Bibliografía
+        </div>
+        <div class="grid-col col-xs-4">
+          <img height="140px" width="140px" onclick="goToSection('autoeval_main');" src="icons/autoeval.png" alt="..." class="img-circle img-responsive center-block">
+          Autoevaluación
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+  
+    function goToURL(url){
+      window.open(url,'_system');
+    }
+
+  </script>
+
+
+</body>

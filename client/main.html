@@ -1,0 +1,151 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>PelApp</title>
+</head>
+
+<body onload="loadPelApp();">
+
+  <div id="search-bar" class="container-fluid row btn-primary search-bar">
+      <div class="search-sub search-edit-div col-xs-12">
+        <input type="text" class="form-control" placeholder="Buscar">
+      </div>
+  </div>
+
+  <div id="main_screen" class="container-fluid section" style="visibility: visible; display: block;">
+
+    <div id="main-buttons-bar-div" class="row">
+      <div class="main-buttons-div">
+        <button class="btn btn-primary btn-lg" style="width:100%" onclick="goToSection('theory_main');">Teoría</button>
+      </div>
+      <div class="main-buttons-div">
+        <button class="btn btn-primary btn-lg" style="width:100%" onclick="goToSection('practice_main');">Práctica</button>
+      </div>
+    </div>
+
+
+    <div class="mision-vision-div container-fluid row">
+      <div class="mision-div col-xs-12">
+        <h4 style="margin-bottom:0px;"><b>Misión</b></h4>
+        <div class="mision-vision-text">
+          La Facultad de Medicina como parte de la Universidad Nacional Autónoma de México es una institución pública dedicada a formar profesionales líderes en las ciencias de la salud, altamente calificados, capaces de generar investigación y difundir el conocimiento. Sus programas están centrados en el estudiante, promueven el aprendizaje autorregulado y la actualización permanente con énfasis en la conducta ética, el profesionalismo y el compromiso con la sociedad mexicana.
+        </div>
+      </div>
+      <div class="vision-div col-xs-12">
+        <h4 style="margin-bottom:0px;"><b>Vision</b></h4>
+        <div class="mision-vision-text">
+          La Facultad de Medicina ejercerá el liderazgo intelectual y tecnológico en las ciencias de la salud en el ámbito nacional e internacional, mediante la educación innovadora y la investigación creativa aplicadas al bienestar del ser humano.
+        </div>
+      </div>
+    </div>
+  
+    <div id="nuevos-quiros-div">
+      <button class="btn btn-warning btn-lg" onclick="goToSection('nuevos_quirofanos');">Nuevos Quirófanos</button>
+    </div>
+
+  </div>
+
+
+
+  <div id="nav-bar" class="nav-bar btn-primary">
+    <div class="nav-button" onClick="backToSection();">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </div>
+    <div class="nav-button-separator"></div>
+    <div class="nav-button" onClick="goToSection('main_screen');">
+      <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+    </div>
+    <div class="nav-button-separator"></div>
+    <div class="nav-button" onClick="forwardToSection();">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </div>
+  </div>
+
+
+
+
+
+
+
+<!-- =============================================================================================================================================== -->
+<!-- =============================================================================================================================================== -->
+<script>
+
+    //Queue de secciones visitadas
+    seenSections = ["practice_main"];
+    toSeeSections = ["practice_main"];
+
+    function setSearchBar(){
+      searchBar = document.getElementById('search-bar');
+      document.body.insertBefore(searchBar, document.body.childNodes[0]);
+    }
+
+    function getSections(){
+      els = document.getElementsByClassName('section');
+      divs = Array.prototype.filter.call(els, function(el){
+          return el.nodeName === 'DIV';
+      });
+      return divs;      
+    }
+
+    function hideSections(){
+      sections = getSections();
+      for (var i = 0; i < sections.length; i++){
+        sections[i].removeAttribute('style');
+      }
+    }
+
+    function showSection(sectionId){
+      document.getElementById(sectionId).style.visibility = 'visible';
+      document.getElementById(sectionId).style.display = 'block';
+    }
+
+    function goToSection(sectionId){
+      hideSections();
+      showSection(sectionId);
+      console.log("go to: "+sectionId);
+      if (seenSections.length==0){ seenSections = []; }
+      seenSections.push(sectionId);
+      setSearchBar();
+    }
+
+    function loadPelApp(){
+      setSearchBar();
+    }
+
+
+    function backToSection(){
+      if (seenSections.length>0){
+        var section = seenSections.pop();
+        seenSections = toSeeSections.push(section);
+        goToSection(section);}
+    }
+
+    function forwardToSection(){
+      if (toSeeSections.length>0){
+        var section = toSeeSections.pop();
+        goToSection(section);
+      }
+    }
+
+
+    function goToURL(URLtxt){
+      document.location.href = URLtxt;
+    }
+
+
+</script>
+<!-- =============================================================================================================================================== -->
+<!-- =============================================================================================================================================== -->
+<script>
+
+  /* Disables hot code push */
+  // Meteor._reload.onMigrate(function() {
+  //   return [false];
+  // });
+
+</script>
+
+
+
+
+</body>

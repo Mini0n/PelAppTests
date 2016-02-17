@@ -1,0 +1,52 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>PelApp</title>
+</head>
+
+<body>
+  <div id="pract_videos_pract" class="container-fluid section">
+
+    <div class="legend-div row">
+      <h4>Autoevaluación General [Teoría]</h4>
+    </div>
+
+
+
+
+  </div>
+
+<script>
+  
+  var totalScore = 0;
+  var askCount = 0;
+
+  cosa = {
+   ask:'Cirugía es la sanación que se lleva por medio de las manos y los instrumentos',
+   sols: ['a. Verdadero*', 'b. Falso', 'c. No sé'],
+   sol: 'a.'
+  }
+
+  function cosaAutoEval(){
+    console.log(cosa);
+    console.log(cosa.ask);
+    console.log(cosa.sols);
+    console.log(cosa.sol);
+  }
+  
+  cosaAutoEval();
+
+  function generateQuestion(questionArray){
+    var containerDiv = "";
+    var radioButton = "";
+    var score = 0;
+    return score;
+  }
+
+  function evalScore(){
+    return (totalScore*100)/askCount;
+  }
+
+</script>
+
+
+</body>

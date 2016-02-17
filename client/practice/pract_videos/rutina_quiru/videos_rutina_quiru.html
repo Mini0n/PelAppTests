@@ -1,0 +1,171 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>PelApp</title>
+</head>
+
+<body>
+  <div id="videos_rutina_quiru" class="container-fluid section">
+    <div class="legend-div row">
+      <h4>Rutina Quirúrgica</h4>
+    </div>
+    <!-- Main-menu -->
+    <div id="videos-rutina-array" class="container-fluid section"></div>
+  </div>
+  
+  <!-- Sub-menus -->
+  <div id="subMenu-row_Engu" class="container-fluid video-subMenu section" style="display:none;">
+    <div class="legend-div row"><h4>Enguantado</h4></div>
+  </div>
+  <div id="subMenu-row_Infi" class="container-fluid video-subMenu section" style="display:none;">
+    <div class="legend-div row"><h4>Infiltración</h4></div>
+  </div>
+  <div id="subMenu-row_Lava" class="container-fluid video-subMenu section" style="display:none;">
+    <div class="legend-div row"><h4>Lavado</h4></div>
+  </div>
+  <div id="subMenu-row_Anti" class="container-fluid video-subMenu section" style="display:none;">
+    <div class="legend-div row"><h4>Antisepsia de la región a operar</h4></div>
+  </div>
+  <div id="subMenu-row_Sutu" class="container-fluid video-subMenu section" style="display:none;">
+    <div class="legend-div row"><h4>Sutura</h4></div>
+  </div>
+  <div id="subMenu-row_Emba" class="container-fluid video-subMenu section" style="display:none;">
+    <div class="legend-div row"><h4>Embatado</h4></div>
+  </div>
+  <div id="subMenu-row_Ruti" class="container-fluid video-subMenu section" style="display:none;">
+    <div class="legend-div row"><h4>Rutina Quirúrgica</h4></div>  
+  </div>
+
+  <script>
+
+  //Main video menu
+  var videos_rutina_array = ['Rutina quirúrgica','Embatado','Enguantado',
+                             'Antisepsia de la región a operar',
+                             'Infiltración','Sutura','Lavado'];
+  //Sub.menus
+  var videos_rutina_engu = ['Autónoma abierta','Autónoma cerrada','Asistido'];
+  var videos_rutina_infi = ['Infiltración de tejidos superficiales'];
+  var videos_rutina_lava = ['Lavado clínico','Lavado quirúrgico'];
+  var videos_rutina_anti = ['Hexaclorofeno','Yodopovidona'];
+  var videos_rutina_sutu = ['Sutura y retiro de puntos'];
+  var videos_rutina_emba = ['Autónomo'];
+  var videos_rutina_ruti = ['Parte 1','Parte 2','Parte 3','Parte 4',
+                            'Parte 5','Parte 6'];
+
+  /*---------------------.
+  |----- Videos IDs -----|
+  '---------------------*/
+  
+  /* IDs rutina quirúrgica 
+     [parte1 .. parte6] */
+  var vr_ruti_ids = ['9v0e90U_bW4','KvcY4SiFYTs','ZarZNIs04LA','4FBQrokdaX4','mlDQrI3s-TY','C1Pc2WKDnGw'];
+  /* Enguantado
+     [auto-abierto, auto-cerrado, asistido] */
+  var vr_engu_ids = ['YvMIZbpOxlU','hNLNwbLIiR0','6aiXmXTgORg'];
+  /* Lavado
+     [quiru, no-quiru] */
+  var vr_lava_ids = ['o3pjV3tjJfU','uRssrQb5aPk']; 
+  /* Embatado
+     [autónomo] */
+  var vr_emba_ids = ['j4BjmSeVxp0'];
+  
+  //--- Infiltración
+  var vr_infi_ids = ['zDSdmqefmOc'];
+  //--- Sutura
+  var vr_sutu_ids = ['bWGWhpno5lk'];
+  //--- Antisepsia de la región a operar
+  var vr_anti_ids = ['FRKdFFOvgpI','nEGp8l4JkWo'];
+
+
+
+  function createArrowItem(parentC, caption, subMenu, subMenuId){
+    var par = document.getElementById(parentC); //parent
+    var rod = document.createElement('div');
+    var cap = document.createElement('div');
+    var arr = document.createElement('div');
+    arr.className = 'col-xs-2 flechita';
+    cap.className = 'col-xs-10';
+    rod.className = 'row';
+    rod.id = 'row_'+trimCaption(caption);
+    if (!subMenu){
+      rod.setAttribute('onclick','showSubMenu(\"subMenu-'+rod.id+'\");');
+    } else {
+      rod.setAttribute('onclick','loadVideo(\"'+subMenuId+'\");');
+    }
+    cap.innerHTML = '<h4>'+caption+'</h4>';
+    arr.innerHTML = '<div class=\"glyphicon glyphicon-chevron-right\"' +
+                    'aria-hidden=\"true\"></div>';
+    rod.appendChild(cap);
+    rod.appendChild(arr);
+    par.appendChild(rod);
+  }
+
+  function trimCaption(txt){
+    return txt.replace(' ','_').split(" ")[0].substr(0,4);
+  }
+
+  function createArrowItems(parentC, items, subMenu, subMenuIds){
+    for (i=0; i<items.length; i++){
+      if (!subMenu){
+        createArrowItem(parentC, items[i], subMenu, '');  
+      } else {
+        createArrowItem(parentC, items[i], subMenu, subMenuIds[i]);
+      }
+    }
+  }
+
+  function getSubMenus(){
+    els = document.getElementsByClassName('video-subMenu');
+    divs = Array.prototype.filter.call(els, function(el){
+        return el.nodeName === 'DIV';
+    });
+    return divs;      
+  }
+
+  function hideSubMenus(){
+    subMenus = getSubMenus();
+    for (var i = 0; i < subMenus.length; i++){
+      subMenus[i].style.display='none';
+    }
+  }
+
+  function showSubMenu(subMenuId){
+    console.log(subMenuId);
+    hideSubMenus();
+    document.getElementById('videos_rutina_quiru').style.display='none';
+    document.getElementById(subMenuId).style.display='block';
+  }
+
+  function showMenu(){
+    hideSubMenus();
+    document.getElementById('videos_rutina_quiru').style.display='block';
+  }
+
+  function loadVideo(videoId){
+    videoIdToLoad = videoId;
+    killVideoScreenPlayer();
+    loadVideoScreenPlayer();
+    goToSection('video_screen');
+  }
+
+  /* 
+  Load videos_rutina_quirurgica
+  fn() for readability and editing 
+  */
+  function load_vrq(){
+    //--- Initial Video Menu ---------------------------------------------------
+    createArrowItems('videos_rutina_quiru', videos_rutina_array, false);
+    //--- Video Sub Menus ------------------------------------------------------
+    createArrowItems('subMenu-row_Engu', videos_rutina_engu, true, vr_engu_ids);
+    createArrowItems('subMenu-row_Infi', videos_rutina_infi, true, vr_infi_ids);
+    createArrowItems('subMenu-row_Lava', videos_rutina_lava, true, vr_lava_ids);
+    createArrowItems('subMenu-row_Anti', videos_rutina_anti, true, vr_anti_ids);
+    createArrowItems('subMenu-row_Sutu', videos_rutina_sutu, true, vr_sutu_ids);
+    createArrowItems('subMenu-row_Emba', videos_rutina_emba, true, vr_emba_ids);
+    createArrowItems('subMenu-row_Ruti', videos_rutina_ruti, true, vr_ruti_ids);
+  }
+
+  load_vrq();
+
+  </script>
+
+</body>

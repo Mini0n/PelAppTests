@@ -1,0 +1,2 @@
+Definitions = new Mongo.Collection('definitions');
+Terminos = new Mongo.Collection('terminos');
