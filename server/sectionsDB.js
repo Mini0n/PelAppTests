@@ -42,7 +42,7 @@ if (Sections.find().count() === 0){
   Sections.insert({
     name: 'Historia clínica',
     text: '',
-    url: 'http://www.facmed.unam.mx/deptos/biocetis/Doc/manualhistoriaclinicaacademica.pdf'
+    url: 'url: http://www.facmed.unam.mx/deptos/biocetis/Doc/manualhistoriaclinicaacademica.pdf'
   });
   Sections.insert({
     name: 'Términos médicos',
