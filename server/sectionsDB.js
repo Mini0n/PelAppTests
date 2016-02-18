@@ -52,7 +52,7 @@ if (Sections.find().count() === 0){
   Sections.insert({
     name: 'Presentaciones',
     text: '',
-    url: 'prez_main'
+    url: 'ppt_main'
   });
   Sections.insert({
     name: 'Anestésicos Antisépticos',
@@ -62,7 +62,7 @@ if (Sections.find().count() === 0){
   Sections.insert({
     name: 'Bibliografía',
     text: '',
-    url: 'bibl_main'
+    url: 'teo_biblio'
   });
   Sections.insert({
     name: 'Autoevaluación (teoría)',
