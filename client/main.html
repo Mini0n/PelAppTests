@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="vision-div col-xs-12">
-        <h4 style="margin-bottom:0px;"><b>Vision</b></h4>
+        <h4 style="margin-bottom:0px;"><b>Visión</b></h4>
         <div class="mision-vision-text">
           La Facultad de Medicina ejercerá el liderazgo intelectual y tecnológico en las ciencias de la salud en el ámbito nacional e internacional, mediante la educación innovadora y la investigación creativa aplicadas al bienestar del ser humano.
         </div>
@@ -142,12 +142,13 @@
     }
 
     function busqueda(termino){
-      if (inTerminos){ busquedaTerminos(termino); } else {
-        if (inDefinitions){ busquedaDefinitions(termino); } else {
+      terminoCleaned = removeAccents(String(termino).toLowerCase());
+      if (inTerminos){ busquedaTerminos(terminoCleaned); } else {
+        if (inDefinitions){ busquedaDefinitions(terminoCleaned); } else {
           searchList = document.getElementById('search-list');
           if (termino.length>0){
             searchList.style.display = 'block';
-            busquedaSections(termino);
+            busquedaSections(terminoCleaned);
           } else {
             searchList.style.display = 'none';
           }
@@ -159,8 +160,8 @@
       var secs = document.getElementById('section-list').childNodes;
       var attr = '';
       for (i=0; i<secs.length; i++){
-        attr = secs[i].getAttribute('data-search').toLowerCase();
-        if (attr.indexOf((termino).toLowerCase()) > -1){
+        attr = removeAccents(secs[i].getAttribute('data-search').toLowerCase());
+        if (attr.indexOf(termino) > -1){
           secs[i].style.display = 'block';
         } else {
           secs[i].style.display = 'none';
@@ -172,8 +173,8 @@
       var terms = document.getElementById('accordion-terminos').childNodes;
       var attr = '';
       for (i=0; i<terms.length; i++){
-        attr = terms[i].getAttribute('data-search').toLowerCase();
-        if (attr.indexOf((termino).toLowerCase()) > -1){
+        attr = removeAccents(terms[i].getAttribute('data-search').toLowerCase());
+        if (attr.indexOf(termino) > -1){
           terms[i].style.display = 'block';
         } else {
           terms[i].style.display = 'none';
@@ -185,8 +186,8 @@
       var defs = document.getElementById('accordion-definitions').childNodes;
       var attr = '';
       for (i=0; i<defs.length; i++){
-        attr = defs[i].getAttribute('data-search').toLowerCase();
-        if (attr.indexOf((termino).toLowerCase()) > -1){
+        attr = removeAccents(defs[i].getAttribute('data-search').toLowerCase());
+        if (attr.indexOf(termino) > -1){
           defs[i].style.display = 'block';
         } else {
           defs[i].style.display = 'none';
@@ -207,6 +208,19 @@
       document.getElementById('search-list').style.display = 'none';
       document.getElementById('search-edit').value = '';
     }
+
+    function removeAccents(txt){
+      return String(txt).replace(/[áàãâä]/gi,"a")
+             .replace(/[éè¨ê]/gi,"e")
+             .replace(/[íìïî]/gi,"i")
+             .replace(/[óòöôõ]/gi,"o")
+             .replace(/[úùüû]/gi, "u")
+             .replace(/[ç]/gi, "c")
+             .replace(/[ñ]/gi, "n")
+             .replace(/[^a-zA-Z0-9]/g," ");
+    }
+
+    console.log(removeAccents('áéíóúñ'));
 
 </script>
 <!-- =============================================================================================================================================== -->
