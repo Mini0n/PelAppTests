@@ -1,0 +1,72 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>PelApp</title>
+</head>
+
+<body>
+  <div id="videos_rutina_quiru" class="container-fluid section">
+
+    <div class="legend-div row">
+      <h4>Rutina Quirúrgica</h4>
+    </div>
+
+  
+  </div>
+
+  <script>
+
+  var videos_rutina_quiru_array = ['Rutina quirúrgica','Embatado','Enguantado',
+                                   'Antisepsia de la región a operar','Infiltración',
+                                   'Sutura','Lavado'];
+  var videos_rutina_lavado =      ['Lavado clínico','Lavado quirúrgico'];
+  var videos_rutina_embatado =    ['Autónomo','Asistido'];
+  var videos_infiltracion =       ['Infiltración de tejidos superficiales'];
+  var videos_rutina_sutura =      ['Sutura y retiro de puntos'];
+  var videos_rutina_enguantado =  ['Autónoma abierta','Autónoma cerrada','Asistido'];
+  var videos_rutina_antisepsia =  ['Hexaclorofeno','Yodopovidona'];
+  var videos_rutina_quirurgica =  ['Parte 1','Parte 2','Parte 3','Parte 4','Parte 5',
+                                   'Parte 6','Parte 7'];
+
+  function createArrowItem(parentC, caption, onClickAction){
+    var par = document.getElementById(parentC); //parent
+    var rod = document.createElement('div');
+    var cap = document.createElement('div');
+    var arr = document.createElement('div');
+    // var txt = '<h4>'+caption+'</h4>';
+    arr.className = 'col-xs-2 flechita';
+    cap.className = 'col-xs-10';
+    rod.className = 'row';
+    rod.onclick = onClickAction;
+    rod.id = 'row_'+caption;
+    cap.innerHTML = "<h4>"+caption+"</h4>";
+    arr.innerHTML = "<div class=\"glyphicon glyphicon-chevron-right\"" +
+                      "aria-hidden=\"true\"></div>"
+    rod.appendChild(cap);
+    rod.appendChild(arr);
+    par.appendChild(rod);
+  }
+
+  function spacesToUnders(txt){
+    return txt.replace(' ','_');
+  }
+
+  function createArrowItems(parentC, items){
+    for (i=0; i<items.length; i++){
+      createArrowItem(parentC, items[i], spacesToUnders(items[i])+'();');
+    }
+  }
+
+  /* 
+  Load videos_rutina_quirurgica
+  fn() for readability and editing 
+  */
+  function load_vrq(){
+    createArrowItems("videos_rutina_quiru", videos_rutina_quiru_array);
+  }
+
+  load_vrq();
+
+  </script>
+
+
+</body>

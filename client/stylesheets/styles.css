@@ -7,6 +7,10 @@ div {
   /*border: 1px solid black;*/
 }
 
+h4 {
+  margin: 5px 0px 5px 0px;
+}
+
 .section {
   /*visibility: hidden;*/
   display: none;
@@ -47,7 +51,7 @@ div {
   background-repeat: no-repeat;
   background-size: contain;
   /*text-align: center;*/
-  margin: 15px 0px 30px 0px;
+  margin: 15px 0px 15px 0px;
   padding: 0px;
   text-align: justify;
   background-image: url('mision-vision-background-trans.jpg');
@@ -179,6 +183,14 @@ body{
 
 /* Barra Inferior
 -------------------------------------------------- */
+
+.nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+}
 
 .player-controls, .player-div {
   text-align: center;

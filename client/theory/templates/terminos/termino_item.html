@@ -1,11 +1,26 @@
 <template name="terminoItem">
-  <a href="#" class="list-group-item" onclick="terminoItem('{{name}}')">
-    <h3 class="list-group-item-heading">
-      {{name}}
-    </h3>
-<!--     <p class="list-group-item-text">{{text}}</p>
-    <p class="list-group-item-text">{{ask}}</p> -->
-  </a>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{url}}">
+          {{name}}
+        </a>
+      </h4>
+    </div>
+    <div id="collapse-{{url}}" class="panel-collapse collapse">
+      <div class="panel-body">
+        {{text}}
+        {{#if hasQuestion ask}}
+          <br>
+          <br>
+          <b>¿Cómo preguntar?</b> <br>
+          {{ask}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
 </template>
 
 

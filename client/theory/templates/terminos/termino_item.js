@@ -1,3 +1,5 @@
 Template.terminoItem.helpers({
-  //*helper functions here*
+  hasQuestion: function (question){
+    return String(question).length > 0;
+  }
 });
