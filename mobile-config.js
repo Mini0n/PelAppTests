@@ -10,3 +10,6 @@ App.icons({
   'android_hdpi': 'public/icon.png',
   'android_xhdpi': 'public/icon.png'
 });
+
+App.accessRule('http://*');
+App.accessRule('https://*');

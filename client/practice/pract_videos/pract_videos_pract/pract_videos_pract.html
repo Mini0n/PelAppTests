@@ -7,87 +7,78 @@
   <div id="pract_videos_pract" class="container-fluid section">
 
     <div class="legend-div row">
-      <h4>Prácticas</h4>
+      <h4>Videos prácticas</h4>
     </div>
 
+    <div class="medieval-row row" onclick="loadVideo('jBbzk4u53wE');">
+      <div class="col-xs-10">
+        <h4>Apendicectomía</h4>
+      </div>
+      <div class="col-xs-2 flechita">
+        <div class="glyphicon glyphicon-chevron-right" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="medieval-row row" onclick="loadVideo('FIIfym8WSKw');">
+      <div class="col-xs-10">
+        <h4>Drenaje de absceso</h4>
+      </div>
+      <div class="col-xs-2 flechita">
+        <div class="glyphicon glyphicon-chevron-right" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="medieval-row row" onclick="loadVideo('Ivn5UznRpgM');">
+      <div class="col-xs-10">
+        <h4>Herida superficial con bordes irregulares</h4>
+      </div>
+      <div class="col-xs-2 flechita">
+        <div class="glyphicon glyphicon-chevron-right" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="medieval-row row" onclick="loadVideo('8KgZhCYbYIc');">
+      <div class="col-xs-10">
+        <h4>Lavado de herida quirúrgica contaminada</h4>
+      </div>
+      <div class="col-xs-2 flechita">
+        <div class="glyphicon glyphicon-chevron-right" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="medieval-row row" onclick="loadVideo('w8uPvgLjbpU');">
+      <div class="col-xs-10">
+        <h4>Nudo manual e instrumentado</h4>
+      </div>
+      <div class="col-xs-2 flechita">
+        <div class="glyphicon glyphicon-chevron-right" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="medieval-row row" onclick="loadVideo('Ex08k2OYQo0');">
+      <div class="col-xs-10">
+        <h4>Oniquectomia</h4>
+      </div>
+      <div class="col-xs-2 flechita">
+        <div class="glyphicon glyphicon-chevron-right" aria-hidden="true"></div>
+      </div>
+    </div>
+  
+    <div class="medieval-row row" onclick="loadVideo('reevMNz6NLU');">
+      <div class="col-xs-10">
+        <h4>Tratamiento de herida superficial</h4>
+      </div>
+      <div class="col-xs-2 flechita">
+        <div class="glyphicon glyphicon-chevron-right" aria-hidden="true"></div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
   </div>
-
-  <script>
-
-  var videos_pract_array = ['Apendicectomía','Drenaje de absceso subcutáneo',
-                            'Herida cruenta superficial con bordos',
-                            'Lavado de herida quirúrgica contaminada',
-                            'Nudo manual e instrumentado', 'Oniquectomía',
-                            'Tratamiento de herida superficial'];
-
-  //type = menu || video(videoId)
-  function createArrowItem(parentC, caption, onClickAction, type){
-    var par = document.getElementById(parentC); //parent
-    var rod = document.createElement('div');
-    var cap = document.createElement('div');
-    var arr = document.createElement('div');
-    arr.className = 'col-xs-2 flechita';
-    cap.className = 'col-xs-10';
-    rod.className = 'row';
-    rod.id = 'row_'+trimCaption(caption);
-    if (type == 'menu'){
-      rod.setAttribute('onclick','showSubMenu(\"subMenu-'+rod.id+'\");');
-    }
-    cap.innerHTML = '<h4>'+caption+'</h4>';
-    arr.innerHTML = '<div class=\"glyphicon glyphicon-chevron-right\"' +
-                    'aria-hidden=\"true\"></div>';
-    rod.appendChild(cap);
-    rod.appendChild(arr);
-    par.appendChild(rod);
-  }
-
-  function trimCaption(txt){
-    return txt.replace(' ','_').split(" ")[0].substr(0,4);
-  }
-
-  function createArrowItems(parentC, items){
-    for (i=0; i<items.length; i++){
-      createArrowItem(parentC, items[i], trimCaption(items[i]), 'menu');
-    }
-  }
-
-  function getSubMenus(){
-    els = document.getElementsByClassName('video-subMenu');
-    divs = Array.prototype.filter.call(els, function(el){
-        return el.nodeName === 'DIV';
-    });
-    return divs;      
-  }
-
-  function hideSubMenus(){
-    subMenus = getSubMenus();
-    for (var i = 0; i < subMenus.length; i++){
-      subMenus[i].style.display='none';
-    }
-  }
-
-  function showSubMenu(subMenuId){
-    console.log(subMenuId);
-    hideSubMenus();
-    document.getElementById('pract_videos_pract').style.display='none';
-    document.getElementById(subMenuId).style.display='block';
-  }
-
-  function showMenu(){
-    hideSubMenus();
-    document.getElementById('pract_videos_pract').style.display='block';
-  }
-
-  /* 
-  Load videos_rutina_quirurgica
-  fn() for readability and editing 
-  */
-  function load_pvp(){
-    createArrowItems('pract_videos_pract', videos_pract_array);
-  }
-
-  load_pvp();
-
-  </script>
-
 </body>
