@@ -1,7 +1,4 @@
+<!-- Formatted to avoid text nodes while using .childNodes -->
 <template name="terminosList">
-  <div class="panel-group" id="accordion">
-    {{#each terminos}}
-      {{>terminoItem}}
-    {{/each}}
-  </div>
+  <div class="panel-group" id="accordion-terminos">{{#each terminos}}{{>terminoItem}}{{/each}}</div>
 </template>

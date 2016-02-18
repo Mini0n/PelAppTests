@@ -1,14 +1,14 @@
 <template name="terminoItem">
 
-  <div class="panel panel-info">
+  <div class="panel panel-info" data-search="{{name}}">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{url}}">
+        <a data-toggle="collapse" data-parent="#accordion-terminos" href="#collapse-termino-{{url}}">
           {{name}}
         </a>
       </h4>
     </div>
-    <div id="collapse-{{url}}" class="panel-collapse collapse">
+    <div id="collapse-termino-{{url}}" class="panel-collapse collapse">
       <div class="panel-body">
         {{text}}
         {{#if hasQuestion ask}}

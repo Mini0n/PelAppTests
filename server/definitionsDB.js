@@ -143,7 +143,7 @@ Definitions.insert({
 });
 Definitions.insert({
   name: 'Criterios de exclusión',
-  text: ' Características de los sujetos que obligacon a no incluirlos en el estudio.',
+  text: 'Características de los sujetos que obligacon a no incluirlos en el estudio.',
   url: '29'
 });
 Definitions.insert({
@@ -257,12 +257,12 @@ Definitions.insert({
   url: '51'
 });
 Definitions.insert({
-  name: ' Ética',
+  name: 'Ética',
   text: 'Origen y esencia de la moral.',
   url: '52'
 });
 Definitions.insert({
-  name: ' Evaluación formativa',
+  name: 'Evaluación formativa',
   text: 'Tiene por objeto dar a conocer los resultados al estudiante en un determiando momento. Permite mejorar periodicamente su rendimiento. }',
   url: '53'
 });
@@ -282,7 +282,7 @@ Definitions.insert({
   url: '56'
 });
 Definitions.insert({
-  name: ' Fuerza de tensión',
+  name: 'Fuerza de tensión',
   text: 'Libras que soporta una sutura antes de romperse',
   url: '57'
 });
@@ -312,7 +312,7 @@ Definitions.insert({
   url: '62'
 });
 Definitions.insert({
-  name: ' Herida cutánea',
+  name: 'Herida cutánea',
   text: 'Alteración de a integridad de la piel cauada por medios físicos, químicos o biológicos provocando una solución de continuidad en los tejidos blandos.',
   url: '63'
 });

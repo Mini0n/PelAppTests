@@ -7,8 +7,12 @@
 
   <div id="search-bar" class="container-fluid row btn-primary search-bar">
       <div class="search-sub search-edit-div col-xs-12">
-        <input type="text" class="form-control" placeholder="Buscar">
+        <input id="search-edit" type="text" class="form-control" placeholder="Buscar" onkeyup="busqueda(this.value);">
       </div>
+  </div>
+
+  <div id="search-list" class="search-list alert-info container-fluid">
+    <div class="search-list-sections">{{> sectionsList}}</div>
   </div>
 
   <div id="main_screen" class="container-fluid section" style="visibility: visible; display: block;">
@@ -70,6 +74,10 @@
 <!-- =============================================================================================================================================== -->
 <script>
 
+    //Control variables to know if search should affect defs or terms lists
+    inDefinitions = false;
+    inTerminos = false;
+
     //Queue de secciones visitadas
     seenSections = ["practice_main"];
     toSeeSections = ["practice_main"];
@@ -102,7 +110,9 @@
     function goToSection(sectionId){
       hideSections();
       showSection(sectionId);
-      console.log("go to: "+sectionId);
+      inDefinitions = (sectionId=='defi_main') ? true : false;
+      inTerminos =  (sectionId=='tmed_main') ? true : false;
+      // console.log("go to: "+sectionId);
       if (seenSections.length==0){ seenSections = []; }
       seenSections.push(sectionId);
       setSearchBar();
@@ -127,11 +137,76 @@
       }
     }
 
-
     function goToURL(URLtxt){
       document.location.href = URLtxt;
     }
 
+    function busqueda(termino){
+      if (inTerminos){ busquedaTerminos(termino); } else {
+        if (inDefinitions){ busquedaDefinitions(termino); } else {
+          searchList = document.getElementById('search-list');
+          if (termino.length>0){
+            searchList.style.display = 'block';
+            busquedaSections(termino);
+          } else {
+            searchList.style.display = 'none';
+          }
+        }
+      } 
+    }
+
+    function busquedaSections(termino){
+      var secs = document.getElementById('section-list').childNodes;
+      var attr = '';
+      for (i=0; i<secs.length; i++){
+        attr = secs[i].getAttribute('data-search').toLowerCase();
+        if (attr.indexOf((termino).toLowerCase()) > -1){
+          secs[i].style.display = 'block';
+        } else {
+          secs[i].style.display = 'none';
+        }
+      }
+    }
+
+    function busquedaTerminos(termino){
+      var terms = document.getElementById('accordion-terminos').childNodes;
+      var attr = '';
+      for (i=0; i<terms.length; i++){
+        attr = terms[i].getAttribute('data-search').toLowerCase();
+        if (attr.indexOf((termino).toLowerCase()) > -1){
+          terms[i].style.display = 'block';
+        } else {
+          terms[i].style.display = 'none';
+        }
+      }
+    }
+
+    function busquedaDefinitions(termino){
+      var defs = document.getElementById('accordion-definitions').childNodes;
+      var attr = '';
+      for (i=0; i<defs.length; i++){
+        attr = defs[i].getAttribute('data-search').toLowerCase();
+        if (attr.indexOf((termino).toLowerCase()) > -1){
+          defs[i].style.display = 'block';
+        } else {
+          defs[i].style.display = 'none';
+        }
+      }
+    }
+
+    function goToBusqueda(value){
+      if (value.indexOf('video:') > -1){
+        console.log('goToVideo: '+value);
+      } else {
+        if (value.indexOf('url:') > -1){
+          console.log('-> goToLink: '+value);
+        } else {
+          goToSection(value);
+        }
+      }
+      document.getElementById('search-list').style.display = 'none';
+      document.getElementById('search-edit').value = '';
+    }
 
 </script>
 <!-- =============================================================================================================================================== -->
