@@ -79,8 +79,9 @@
     inTerminos = false;
 
     //Queue de secciones visitadas
-    seenSections = ["practice_main"];
-    toSeeSections = [];
+    currentSection = "main_screen"
+    backSections = [];
+    frwdSections = [];
 
     function setSearchBar(){
       searchBar = document.getElementById('search-bar');
@@ -107,31 +108,34 @@
       document.getElementById(sectionId).style.display = 'block';
     }
 
-    function goToSection(sectionId){
-      hideSections();
-      showSection(sectionId);
-      inDefinitions = (sectionId=='defi_main') ? true : false;
-      inTerminos =  (sectionId=='tmed_main') ? true : false;
-      navController(sectionId);
-    }
-
     function loadPelApp(){
       setSearchBar();
     }
 
+    function goToSection(sectionId){
+      navController(currentSection);
+      currentSection = sectionId;
+      inDefinitions = (sectionId=='defi_main') ? true : false;
+      inTerminos =  (sectionId=='tmed_main') ? true : false;
+      hideSections();
+      showSection(sectionId);
+    }
+
+    function navController(sectionId){
+      backSections.push(sectionId);
+      console.log(backSections);
+    }
 
     function backToSection(){
-      if (seenSections.length>0){
-        var section = seenSections.pop();
-        seenSections = toSeeSections.push(section);
-        goToSection(section);}
+      if (backSections.length>0){
+        var section = backSections.pop();
+        goToSection(section);
+        backSections.pop();
+      }
     }
 
     function forwardToSection(){
-      // if (toSeeSections.length>0){
-      //   var section = toSeeSections.pop();
-      //   goToSection(section);
-      // }
+
     }
 
     function goToURL(URLtxt){
@@ -216,8 +220,6 @@
              .replace(/[ñ]/gi, "n")
              .replace(/[^a-zA-Z0-9]/g," ");
     }
-
-    console.log(removeAccents('áéíóúñ'));
 
 </script>
 <!-- =============================================================================================================================================== -->
