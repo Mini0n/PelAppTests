@@ -81,7 +81,7 @@
     //Queue de secciones visitadas
     currentSection = "main_screen"
     backSections = [];
-    frwdSections = [];
+    fwrdSections = [];
 
     function setSearchBar(){
       searchBar = document.getElementById('search-bar');
@@ -113,7 +113,9 @@
     }
 
     function goToSection(sectionId){
-      navController(currentSection);
+      // navController(currentSection);
+      // currentSection = sectionId;
+      navController(sectionId);
       currentSection = sectionId;
       inDefinitions = (sectionId=='defi_main') ? true : false;
       inTerminos =  (sectionId=='tmed_main') ? true : false;
@@ -123,19 +125,30 @@
 
     function navController(sectionId){
       backSections.push(sectionId);
+      console.log('backSections:');
       console.log(backSections);
+      // console.log('fwrdSections:');
+      // console.log(fwrdSections);
     }
 
     function backToSection(){
-      if (backSections.length>0){
+      if (backSections.length>1){
         var section = backSections.pop();
-        goToSection(section);
-        backSections.pop();
+        if (section!="main_screen"){
+          section = backSections.pop();
+          goToSection(section);
+        }
       }
     }
 
     function forwardToSection(){
-
+      if (fwrdSections.length>0){
+        fwrdSections.pop();
+        var section = fwrdSections.pop();
+        goToSection(section);
+        // console.log('going to: '+section);
+        // console.log(fwrdSections);
+      }
     }
 
     function goToURL(URLtxt){
@@ -220,6 +233,8 @@
              .replace(/[ñ]/gi, "n")
              .replace(/[^a-zA-Z0-9]/g," ");
     }
+
+    goToSection("main_screen");
 
 </script>
 <!-- =============================================================================================================================================== -->
