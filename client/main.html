@@ -80,7 +80,7 @@
 
     //Queue de secciones visitadas
     seenSections = ["practice_main"];
-    toSeeSections = ["practice_main"];
+    toSeeSections = [];
 
     function setSearchBar(){
       searchBar = document.getElementById('search-bar');
@@ -112,10 +112,7 @@
       showSection(sectionId);
       inDefinitions = (sectionId=='defi_main') ? true : false;
       inTerminos =  (sectionId=='tmed_main') ? true : false;
-      // console.log("go to: "+sectionId);
-      if (seenSections.length==0){ seenSections = []; }
-      seenSections.push(sectionId);
-      setSearchBar();
+      navController(sectionId);
     }
 
     function loadPelApp(){
@@ -131,10 +128,10 @@
     }
 
     function forwardToSection(){
-      if (toSeeSections.length>0){
-        var section = toSeeSections.pop();
-        goToSection(section);
-      }
+      // if (toSeeSections.length>0){
+      //   var section = toSeeSections.pop();
+      //   goToSection(section);
+      // }
     }
 
     function goToURL(URLtxt){
