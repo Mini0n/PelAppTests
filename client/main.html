@@ -132,7 +132,15 @@
         if (classes.indexOf('div-scroll')>0){
           c[i].style.overflowX = 'hidden';
           c[i].style.overflowY = 'auto';
-          c[i].style.maxHeight = String((getBodyHeight() - 147) + 'px' );
+          var nH = String((getBodyHeight() - 147) + 'px' );
+          if (sectionId=='main_screen'){ 
+            nH = String((getBodyHeight() - 181) + 'px' ); 
+          } else {
+            if (sectionId=='about_app'){ 
+              var nH = String((getBodyHeight() - 167) + 'px' );
+            }
+          }
+          c[i].style.maxHeight = nH;
         }
       }
     }
