@@ -28,214 +28,213 @@
       </div>
 
       <br>
+      <div class="container-fluid div-scroll">
+        <div class="dosisProtocolA" id="dosisProtocolA" style="display:block;">
+          <div class="input-group">
+            <span class="input-group-addon" style="min-width:100px;">Peso</span>
+            <input id="peso-edit-A" type="text" style="text-align:center;" class="form-control" onkeydown="calcDosis();" onkeyup="calcDosis();">
+            <span class="input-group-addon" style="min-width:100px;">Kg</span>
+          </div>
+          <br>
+          <div class="input-group">
+            <span class="input-group-addon" style="min-width:100px;">Xilacina</span>
+            <input id="resAX" type="text" readonly style="text-align:center;" value="0" class="form-control">
+            <span class="input-group-addon" style="min-width:100px;">ml</span>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" style="min-width:100px;">Ketamina</span>
+            <input id="resAK" type="text" readonly style="text-align:center;" value="0" class="form-control">
+            <span class="input-group-addon" style="min-width:100px;">ml</span>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" style="min-width:100px;">Pento</span>
+            <input id="resAP" type="text" readonly style="text-align:center;" value="0" class="form-control">
+            <span class="input-group-addon" style="min-width:100px;">ml</span>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" style="min-width:100px;">Solución</span>
+            <input id="resAS" type="text" readonly style="text-align:center;" value="0" class="form-control">
+            <span class="input-group-addon" style="min-width:100px;">Gotas/min</span>
+          </div>
+        </div>
 
-      <div class="dosisProtocolA" id="dosisProtocolA" style="display:block;">
-        <div class="input-group">
-          <span class="input-group-addon" style="min-width:100px;">Peso</span>
-          <input id="peso-edit-A" type="text" style="text-align:center;" class="form-control" onkeydown="calcDosis();" onkeyup="calcDosis();">
-          <span class="input-group-addon" style="min-width:100px;">Kg</span>
-        </div>
-        <br>
-        <div class="input-group">
-          <span class="input-group-addon" style="min-width:100px;">Xilacina</span>
-          <input id="resAX" type="text" readonly style="text-align:center;" value="0" class="form-control">
-          <span class="input-group-addon" style="min-width:100px;">ml</span>
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon" style="min-width:100px;">Ketamina</span>
-          <input id="resAK" type="text" readonly style="text-align:center;" value="0" class="form-control">
-          <span class="input-group-addon" style="min-width:100px;">ml</span>
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon" style="min-width:100px;">Pento</span>
-          <input id="resAP" type="text" readonly style="text-align:center;" value="0" class="form-control">
-          <span class="input-group-addon" style="min-width:100px;">ml</span>
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon" style="min-width:100px;">Solución</span>
-          <input id="resAS" type="text" readonly style="text-align:center;" value="0" class="form-control">
-          <span class="input-group-addon" style="min-width:100px;">Gotas/min</span>
+        <div class="dosisProtocolB" id="dosisProtocolB" style="display:none;">
+          <div class="input-group">
+            <span class="input-group-addon" style="min-width:100px;">Peso</span>
+            <input id="peso-edit-B" type="text" style="text-align:center;" class="form-control" onkeydown="calcDosis();" onkeyup="calcDosis();">
+            <span class="input-group-addon" style="min-width:100px;">Kg</span>
+          </div>
+          <br>
+          <div class="input-group">
+            <span class="input-group-addon" style="min-width:100px;">Ketamina</span>
+            <input id="resBK" type="text" readonly style="text-align:center;" value="0" class="form-control">
+            <span class="input-group-addon" style="min-width:100px;">ml</span>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" style="min-width:100px;">Pento</span>
+            <input id="resBP" type="text" readonly style="text-align:center;" value="0" class="form-control">
+            <span class="input-group-addon" style="min-width:100px;">ml</span>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" style="min-width:100px;">Solución</span>
+            <input id="resBS" type="text" readonly style="text-align:center;" value="0" class="form-control">
+            <span class="input-group-addon" style="min-width:100px;">Gotas/min</span>
+          </div>
         </div>
       </div>
-
-
-      <div class="dosisProtocolB" id="dosisProtocolB" style="display:none;">
-        <div class="input-group">
-          <span class="input-group-addon" style="min-width:100px;">Peso</span>
-          <input id="peso-edit-B" type="text" style="text-align:center;" class="form-control" onkeydown="calcDosis();" onkeyup="calcDosis();">
-          <span class="input-group-addon" style="min-width:100px;">Kg</span>
-        </div>
-        <br>
-        <div class="input-group">
-          <span class="input-group-addon" style="min-width:100px;">Ketamina</span>
-          <input id="resBK" type="text" readonly style="text-align:center;" value="0" class="form-control">
-          <span class="input-group-addon" style="min-width:100px;">ml</span>
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon" style="min-width:100px;">Pento</span>
-          <input id="resBP" type="text" readonly style="text-align:center;" value="0" class="form-control">
-          <span class="input-group-addon" style="min-width:100px;">ml</span>
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon" style="min-width:100px;">Solución</span>
-          <input id="resBS" type="text" readonly style="text-align:center;" value="0" class="form-control">
-          <span class="input-group-addon" style="min-width:100px;">Gotas/min</span>
-        </div>
-      </div>
+      
 
     </div>
 
 
-    <div class="calc_dosis_about_btn_div">
-      <button class="btn btn-default btn-lg" onclick="aboutBtn();">
-        <span class="glyphicon glyphicon-question-sign"></span>
-      </button>
-    </div>
-
-
-    <div id="calc-dosis-about" class="calc-dosis-about" style="display:none;">
-
-      <div id="about-dosis-A" style="display:block;">
-        <div id="about-dosis-A-info" style="display:block;">
-          <h4>Protocolo A</h4>
-          Utiliza 3 fármacos. <br>
-          Fórmula: 
-          <br>
-          <div id="image-container" style="text-align:center;">
-            <img src="dosis/protA/protoA.png" class='img-responsive' width="95%" height="auto" style="margin:0 auto;">
-          </div>
-          <br>
-          <table class="table table-bordered table-centered">
-            <thead>
-              <tr class="info">
-                <th style="text-align:center;">Fármaco</th>
-                <th style="text-align:center;">Dosis</th>
-                <th style="text-align:center;">Presentación</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Xilacina</td>
-                <td>5mg</td>
-                <td>20</td>
-              </tr>
-              <tr>
-                <td>Ketamina</td>
-                <td>20mg</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>Pentobarbital</td>
-                <td>20mg</td>
-                <td>63</td>
-              </tr>
-            </tbody>
-          </table>
-          <div style="text-align:center;">
-            <button class="btn btn-default btn-lg" onclick="ejemploBtn();">Ejemplos</button>
-          </div>
-        </div>
-
-        <div id="about-dosis-A-sample" style="display:none;">
-          Calcula la anestesia requerida para un conejo que pesa 3.700 kg: <br> <br>
-          <div class="icons-grid row">
-            <div id="line1" class="grd-line row" style="height:20%;">
-              <div class="grid-col col-xs-4" style="text-align:left;">
-                Xilacina: <br>
-                Xilacina: .92ml
-              </div>
-              <div class="grid-col col-xs-8">
-                <img src="dosis/protA/ejem1.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
-              </div>
-            </div>
-            <div id="line2" class="grd-line row" style="height:20%;">
-              <div class="grid-col col-xs-4" style="text-align:left;">
-                Ketamina: <br>
-                Ketamina: .74ml
-              </div>
-              <div class="grid-col col-xs-8">
-                <img src="dosis/protA/ejem2.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
-              </div>
-            </div>
-            <div id="line3" class="grd-line row" style="height:20%;">
-              <div class="grid-col col-xs-4" style="text-align:left;">
-                Pentobarbital: <br>
-                Pentobarbital: 1.1ml
-              </div>
-              <div class="grid-col col-xs-8">
-                <img src="dosis/protA/ejem3.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <div class="calc_dosis_about_btn_div">
+        <button class="btn btn-default btn-lg" onclick="aboutBtn();">
+          <span class="glyphicon glyphicon-question-sign"></span>
+        </button>
       </div>
 
-      <div id="about-dosis-B" style="display:none;">
-        <div id="about-dosis-B-info" style="display:block;">
-          <h4>Protocolo B</h4>
-          Utiliza 2 fármacos a mayor dosis. <br>
-          Fórmula:        
-          <br>
-          <div id="image-container" style="text-align:center;">
-            <img src="dosis/protB/protB.png" class='img-responsive' width="95%" height="auto" style="margin:0 auto;">
-          </div>
-          <br>
-          <table class="table table-bordered table-centered">
-            <thead>
-              <tr class="info">
-                <th style="text-align:center;">Fármaco</th>
-                <th style="text-align:center;">Dosis</th>
-                <th style="text-align:center;">Presentación</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Ketamina</td>
-                <td>24mg</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td>Pentobarbital</td>
-                <td>40mg</td>
-                <td>63</td>
-              </tr>
-            </tbody>
-          </table>
-          <div style="text-align:center;">
-            <button class="btn btn-default btn-lg" onclick="ejemploBtn();">Ejemplos</button>
-          </div>
-        </div>
-        <div id="about-dosis-B-sample" style="display:none;">
+      <div id="calc-dosis-about" class="calc-dosis-about" style="display:none;">
 
-          Calcula la anestesia requerida para un conejo que pesa 4.200 kg: <br> <br>
-          <div class="icons-grid row">
-            <div id="line1" class="grd-line row" style="height:20%;">
-              <div class="grid-col col-xs-4" style="text-align:left;">
-                Ketamina: <br>
-                Ketamina: 1ml
-              </div>
-              <div class="grid-col col-xs-8">
-                <img src="dosis/protB/ejem1.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
-              </div>
+        <div id="about-dosis-A" style="display:block;">
+          <div id="about-dosis-A-info" style="display:block;">
+            <h4>Protocolo A</h4>
+            Utiliza 3 fármacos. <br>
+            Fórmula: 
+            <br>
+            <div id="image-container" style="text-align:center;">
+              <img src="dosis/protA/protoA.png" class='img-responsive' width="95%" height="auto" style="margin:0 auto;">
             </div>
-            <div id="line2" class="grd-line row" style="height:20%;">
-              <div class="grid-col col-xs-4" style="text-align:left;">
-                Pentobarbital: <br>
-                Pentobarbital: 2.6ml
-              </div>
-              <div class="grid-col col-xs-8">
-                <img src="dosis/protB/ejem2.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
-              </div>
+            <br>
+            <table class="table table-bordered table-centered">
+              <thead>
+                <tr class="info">
+                  <th style="text-align:center;">Fármaco</th>
+                  <th style="text-align:center;">Dosis</th>
+                  <th style="text-align:center;">Presentación</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Xilacina</td>
+                  <td>5mg</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>Ketamina</td>
+                  <td>20mg</td>
+                  <td>100</td>
+                </tr>
+                <tr>
+                  <td>Pentobarbital</td>
+                  <td>20mg</td>
+                  <td>63</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="text-align:center;">
+              <button class="btn btn-default btn-lg" onclick="ejemploBtn();">Ejemplos</button>
             </div>
           </div>
 
-        </div>
-        
+          <div id="about-dosis-A-sample" style="display:none;">
+            Calcula la anestesia requerida para un conejo que pesa 3.700 kg: <br> <br>
+            <div class="icons-grid row">
+              <div id="line1" class="grd-line row" style="height:20%;">
+                <div class="grid-col col-xs-4" style="text-align:left;">
+                  Xilacina: <br>
+                  Xilacina: .92ml
+                </div>
+                <div class="grid-col col-xs-8">
+                  <img src="dosis/protA/ejem1.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
+                </div>
+              </div>
+              <div id="line2" class="grd-line row" style="height:20%;">
+                <div class="grid-col col-xs-4" style="text-align:left;">
+                  Ketamina: <br>
+                  Ketamina: .74ml
+                </div>
+                <div class="grid-col col-xs-8">
+                  <img src="dosis/protA/ejem2.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
+                </div>
+              </div>
+              <div id="line3" class="grd-line row" style="height:20%;">
+                <div class="grid-col col-xs-4" style="text-align:left;">
+                  Pentobarbital: <br>
+                  Pentobarbital: 1.1ml
+                </div>
+                <div class="grid-col col-xs-8">
+                  <img src="dosis/protA/ejem3.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
+                </div>
+              </div>
+            </div>
+          </div>
 
+        </div>
+
+        <div id="about-dosis-B" style="display:none;">
+          <div id="about-dosis-B-info" style="display:block;">
+            <h4>Protocolo B</h4>
+            Utiliza 2 fármacos a mayor dosis. <br>
+            Fórmula:        
+            <br>
+            <div id="image-container" style="text-align:center;">
+              <img src="dosis/protB/protB.png" class='img-responsive' width="95%" height="auto" style="margin:0 auto;">
+            </div>
+            <br>
+            <table class="table table-bordered table-centered">
+              <thead>
+                <tr class="info">
+                  <th style="text-align:center;">Fármaco</th>
+                  <th style="text-align:center;">Dosis</th>
+                  <th style="text-align:center;">Presentación</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ketamina</td>
+                  <td>24mg</td>
+                  <td>100</td>
+                </tr>
+                <tr>
+                  <td>Pentobarbital</td>
+                  <td>40mg</td>
+                  <td>63</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="text-align:center;">
+              <button class="btn btn-default btn-lg" onclick="ejemploBtn();">Ejemplos</button>
+            </div>
+          </div>
+          <div id="about-dosis-B-sample" style="display:none;">
+
+            Calcula la anestesia requerida para un conejo que pesa 4.200 kg: <br> <br>
+            <div class="icons-grid row">
+              <div id="line1" class="grd-line row" style="height:20%;">
+                <div class="grid-col col-xs-4" style="text-align:left;">
+                  Ketamina: <br>
+                  Ketamina: 1ml
+                </div>
+                <div class="grid-col col-xs-8">
+                  <img src="dosis/protB/ejem1.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
+                </div>
+              </div>
+              <div id="line2" class="grd-line row" style="height:20%;">
+                <div class="grid-col col-xs-4" style="text-align:left;">
+                  Pentobarbital: <br>
+                  Pentobarbital: 2.6ml
+                </div>
+                <div class="grid-col col-xs-8">
+                  <img src="dosis/protB/ejem2.png" class="img-responsive" width="70%" style="margin:auto; width:100%;">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          
+
+        </div>
       </div>
-
-    </div>
 
 
   </div>

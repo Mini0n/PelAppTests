@@ -26,8 +26,7 @@
       </div>
     </div>
 
-
-    <div class="mision-vision-div container-fluid row">
+    <div class="mision-vision-div container-fluid row div-scroll">
       <div class="mision-div col-xs-12">
         <h4 style="margin-bottom:0px;"><b>Misión</b></h4>
         <div class="mision-vision-text">
@@ -40,17 +39,17 @@
           La Facultad de Medicina ejercerá el liderazgo intelectual y tecnológico en las ciencias de la salud en el ámbito nacional e internacional, mediante la educación innovadora y la investigación creativa aplicadas al bienestar del ser humano.
         </div>
       </div>
+      <div id="nuevos-quiros-div">
+        <button class="btn btn-warning btn-lg" onclick="goToSection('nuevos_quirofanos');">Nuevos Quirófanos</button>
+      </div>
     </div>
   
-    <div id="nuevos-quiros-div">
-      <button class="btn btn-warning btn-lg" onclick="goToSection('nuevos_quirofanos');">Nuevos Quirófanos</button>
-    </div>
-
   </div>
 
-
-
   <div id="nav-bar" class="nav-bar btn-primary">
+    <div class="nav-button nav-button-about" onClick="goToSection('about_app');">
+      <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+    </div>
     <div class="nav-button" onClick="backToSection();">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     </div>
@@ -121,15 +120,26 @@
       inTerminos =  (sectionId=='tmed_main') ? true : false;
       hideSections();
       showSection(sectionId);
+      adjustScroll(sectionId);
+    }
+
+    function adjustScroll(sectionId){
+      h = getBodyHeight();
+      s = document.getElementById(sectionId);
+      c = s.childNodes;
+      console.log(c);
+      // if (c.length>1){
+
+      // }
     }
 
     function navController(sectionId){
       backSections.push(sectionId);
-      console.log('backSections:');
-      console.log(backSections);
-      console.log('fwrdSections:');
-      console.log(fwrdSections);
-      console.log('-------------------------------------')
+      // console.log('backSections:');
+      // console.log(backSections);
+      // console.log('fwrdSections:');
+      // console.log(fwrdSections);
+      // console.log('-------------------------------------')
     }
 
     function backToSection(){
@@ -234,6 +244,15 @@
              .replace(/[ç]/gi, "c")
              .replace(/[ñ]/gi, "n")
              .replace(/[^a-zA-Z0-9]/g," ");
+    }
+
+    function getBodyHeight(){
+      // var body = document.body,
+      //     html = document.documentElement;
+      // var height = Math.max(body.scrollHeight, body.offsetHeight, 
+      //                       html.clientHeight, html.scrollHeight, html.offsetHeight);
+      var height = window.innerHeight;
+      return height;
     }
 
     goToSection("main_screen");
