@@ -127,10 +127,14 @@
       h = getBodyHeight();
       s = document.getElementById(sectionId);
       c = s.childNodes;
-      console.log(c);
-      // if (c.length>1){
-
-      // }
+      for (i=0;i<c.length;i++){
+        var classes = String(c[i].className).toLowerCase();
+        if (classes.indexOf('div-scroll')>0){
+          c[i].style.overflowX = 'hidden';
+          c[i].style.overflowY = 'auto';
+          c[i].style.maxHeight = String((getBodyHeight() - 147) + 'px' );
+        }
+      }
     }
 
     function navController(sectionId){
