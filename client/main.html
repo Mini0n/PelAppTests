@@ -127,14 +127,16 @@
       backSections.push(sectionId);
       console.log('backSections:');
       console.log(backSections);
-      // console.log('fwrdSections:');
-      // console.log(fwrdSections);
+      console.log('fwrdSections:');
+      console.log(fwrdSections);
+      console.log('-------------------------------------')
     }
 
     function backToSection(){
       if (backSections.length>1){
         var section = backSections.pop();
         if (section!="main_screen"){
+          fwrdSections.push(section);
           section = backSections.pop();
           goToSection(section);
         }
