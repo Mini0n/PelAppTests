@@ -111,10 +111,8 @@
       setSearchBar();
     }
 
-    function goToSection(sectionId){
-      // navController(currentSection);
-      // currentSection = sectionId;
-      navController(sectionId);
+    function goToSection(sectionId, back){
+      navController(sectionId, back);
       currentSection = sectionId;
       inDefinitions = (sectionId=='defi_main') ? true : false;
       inTerminos =  (sectionId=='tmed_main') ? true : false;
@@ -145,33 +143,46 @@
       }
     }
 
-    function navController(sectionId){
+    function navController(sectionId, back){
       backSections.push(sectionId);
-      // console.log('backSections:');
-      // console.log(backSections);
-      // console.log('fwrdSections:');
-      // console.log(fwrdSections);
-      // console.log('-------------------------------------')
+      if (fwrdSections.length>0){
+        var lastBack = backSections[backSections.length-2];
+        var lastFwrd = fwrdSections[fwrdSections.length-1].split('\\')[0];
+        if (lastBack==lastFwrd){
+          fwrdSections.pop();
+        }
+      }
     }
 
     function backToSection(){
       if (backSections.length>1){
         var section = backSections.pop();
-        if (section!="main_screen"){
-          fwrdSections.push(section);
-          section = backSections.pop();
-          goToSection(section);
+        addToForwardSection(backSections[backSections.length-1]+'\\'+section);
+        section = backSections.pop();
+        goToSection(section, true);
+      }
+    }
+
+    function addToForwardSection(section){
+      if (fwrdSections.length==0){
+        fwrdSections.push(section);
+      } else {
+        var lastBack = backSections[backSections.length-1];
+        var lastFwrd = fwrdSections[fwrdSections.length-1].split('\\')[0];
+        console.log('lastBack: '+lastBack);
+        console.log('lastFwrd: '+lastFwrd);
+        if (lastBack==lastFwrd){
+          fwrdSections.pop();
         }
+        fwrdSections.push(section);
       }
     }
 
     function forwardToSection(){
       if (fwrdSections.length>0){
-        fwrdSections.pop();
-        var section = fwrdSections.pop();
+        var section = fwrdSections.pop().split('\\').pop();
+        console.log('fwrd: ' + section);
         goToSection(section);
-        // console.log('going to: '+section);
-        // console.log(fwrdSections);
       }
     }
 
